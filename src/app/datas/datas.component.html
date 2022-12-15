@@ -1,0 +1,33 @@
+<form [formGroup]="form" class="row g-3">
+    <div class="form-group col-auto">
+        <label for="inputData1" class="visually-hidden">Data 1</label>
+        <input type="text" class="form-control" id="inputData1" placeholder="Data 1" formControlName="data1"
+            mask="00/00/0000">
+    </div>
+    <div class="form-group col-auto">
+        <label for="inputData2" class="visually-hidden">Data 2</label>
+        <!-- <input type="text" class="form-control" id="inputData2" placeholder="Data 2" formControlName="data2"
+            mask="00/00/0000"> -->
+        <input class="form-control" 
+            type="text" 
+            value="{{dataFormatada }}" 
+            disabled>
+    </div>
+    <div class="form-group col-auto">
+        <button type="submit" class="btn btn-primary mb-3" (click)="mostrarContagem()">Confirmar</button>
+    </div>
+</form>
+
+<div class="card text-dark bg-light mb-3" style="max-width: 32rem;" *ngIf="mostrarDatas" >
+    <div class="card-header">Datas</div>
+    <div class="card-body">
+        <h5 class="card-title"> {{ dataPassadoView }} - {{ dataFormatada }} </h5>
+        <p class="card-text"> {{ mensagem }} </p>
+    </div>
+</div>
+
+<!-- <br>Dirty: {{ form.dirty }}
+<br>Touched: {{ form.touched }}
+<br>Valid: {{ form.valid }}
+<br>Value: {{ form.value | json }}
+<br>&nbsp; -->
